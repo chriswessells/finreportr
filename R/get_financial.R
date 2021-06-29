@@ -28,7 +28,7 @@ GetFinancial <- function(statement.type, symbol, year) {
           report.period <- gsub("-", "" , report.period)
           
           inst.url <- paste0("https://www.sec.gov/Archives/edgar/data/", CIK, "/", 
-                             accession.no, "/", lower.symbol, "-", report.period, "_htm.xml")
+                             accession.no, "/", lower.symbol, "-", report.period, ".xml")
           print(inst.url)
           return(inst.url)
      }
@@ -43,10 +43,10 @@ GetFinancial <- function(statement.type, symbol, year) {
      
      ##   Check if url exits
      
-     check <- tryCatch(is.list(httr::GET(inst.url, user_agent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_16; rv:42.0) Gecko/20100101 Firefox/42.0'))), error = function(e) {return(FALSE)})
-     if(check == FALSE) {
-          stop("no XBRL-format filings detected")
-     }
+     # check <- tryCatch(is.list(httr::GET(inst.url, user_agent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_16; rv:42.0) Gecko/20100101 Firefox/42.0'))), error = function(e) {return(FALSE)})
+     # if(check == FALSE) {
+     #      stop("no XBRL-format filings detected")
+     # }
      
      ##   Download Instance Document
      instFile <- GetInstFile(inst.url)
