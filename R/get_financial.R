@@ -42,7 +42,7 @@ GetFinancial <- function(statement.type, symbol, year) {
      
      ##   Check if url exits
      
-     check <- tryCatch(is.list(httr::GET(inst.url)), error = function(e) {return(FALSE)})
+     check <- tryCatch(is.list(httr::GET(inst.url, user_agent('Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0'))), error = function(e) {return(FALSE)})
      if(check == FALSE) {
           stop("no XBRL-format filings detected")
      }
