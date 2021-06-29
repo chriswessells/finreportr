@@ -28,7 +28,7 @@ GetFinancial <- function(statement.type, symbol, year) {
           report.period <- gsub("-", "" , report.period)
           
           inst.url <- paste0("https://www.sec.gov/Archives/edgar/data/", CIK, "/", 
-                             accession.no, "/", lower.symbol, "-", report.period, ".xml")
+                             accession.no, "/", lower.symbol, "-", report.period, "_htm.xml")
           print(inst.url)
           return(inst.url)
      }
